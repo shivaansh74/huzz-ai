@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans;
+  }
+}
+
+@layer components {
+  .button-primary {
+    @apply bg-rizz-red hover:bg-opacity-80 text-white py-2 px-6 rounded-lg transition duration-300 font-medium;
+  }
+  
+  .button-secondary {
+    @apply bg-transparent border border-rizz-cyan text-rizz-cyan hover:bg-rizz-cyan hover:bg-opacity-10 py-2 px-6 rounded-lg transition duration-300 font-medium;
+  }
+
+  .card {
+    @apply bg-gray-900 border border-gray-800 p-6 rounded-xl shadow-lg;
+  }
+
+  .input {
+    @apply bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-rizz-cyan transition duration-300;
+  }
+}
+
+.glow-text-red {
+  text-shadow: 0 0 10px rgba(230, 57, 70, 0.7);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(78, 205, 196, 0.7);
+}
+
+:root {
+  --color-deep-black: #121212;
+  --color-dark-gray: #1e1e1e;
+  --color-rizz-cyan: #4ECDC4;
+  --color-rizz-red: #E63946;
+}
+
+html, body {
+  @apply bg-deep-black text-white;
+  -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .input, .button-primary, .button-secondary {
+    @apply py-3; /* Larger touch targets on mobile */
+  }
+  
+  /* Add some breathing room on mobile */
+  .card {
+    @apply p-4;
+  }
+  
+  /* Fix for mobile screens to prevent overflow */
+  .container {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Mobile animations */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Mobile touch improvements */
+  button, a {
+    @apply min-h-[44px] min-w-[44px]; /* Minimum recommended touch target size */
+    touch-action: manipulation; /* Improves touch responsiveness */
+  }
+}
